@@ -17,9 +17,7 @@ const generateCard = (name, imageUrl, onRemove) => {
   imageElement.alt = name;
 
   removeBtn.addEventListener("click", onRemove);
-  cardsWrapper.append(cardElement);
-
-  return cardElement; 
+    return cardElement; 
 };
 
 // @todo: Функция удаления карточки 
@@ -31,5 +29,9 @@ const removeCard = (event) => {
 }; 
 
 
-// @todo: Вывести карточки на страницу
-initialCards.forEach(({ name, link }) => generateCard(name, link, removeCard));
+// @todo: Вывести карточки на страницу 
+initialCards.forEach(({ name, link }) => {
+  const cardElement = generateCard(name, link, removeCard);
+  cardsWrapper.append(cardElement);
+});
+
